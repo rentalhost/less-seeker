@@ -5,34 +5,32 @@ var argv   = require("minimist")(process.argv.slice(2)),
 // Supported Options (base on Less options).
 var supportedOptions = {
     // Help.
-    "help"                  : { "description": "Show this help.", "alias": "h" },
+    "help"                  : { "description": "Show common help.\nUse --help=full to show all options.", "alias": "h" },
 
     // Seeker Options.
-    "output-directory"      : { "description": "Sets output directory of compiled file.", "alias": "o" },
-    "interval"              : { "description": "Sets interval of seeker. Default is 100ms.", "alias": "i" },
+    "output-directory"      : { "description": "Sets output directory of compiled file.", "alias": "o", "advanced": true },
+    "interval"              : { "description": "Sets interval of seeker.\nDefault is 100ms.", "alias": "i" },
 
     // Less Options.
-    "include-path"          : { "description": "Sets include paths.\nSeparated by \":\". Use \";\" on Windows." },
-    "no-ie-compat"          : { "description": "Disables IE compatibility checks." },
-    "no-js"                 : { "description": "Disables JavaScript in less files." },
-    "strict-imports"        : { "description": "Forces evaluation of imports." },
-    "insecure"              : { "description": "Allows imports from insecure https hosts." },
-    "source-map"            : { "description": "Outputs a v3 sourcemap to the filename. Or output filename.map." },
-    "source-map-rootpath"   : { "description": "Adds this path onto the sourcemap filename and less file paths." },
-    "source-map-basepath"   : { "description": "Sets sourcemap base path, defaults to current working directory." },
-    "source-map-less-inline": { "description": "Puts the less files into the map instead of referencing them." },
-    "source-map-map-inline" : { "description": "Puts the map (and any less files) as a base64 data uri into the output css file." },
-    "source-map-url"        : { "description": "Sets a custom URL to map file, for sourceMappingURL comment in generated CSS file." },
-    "rootpath"              : { "description": "Sets rootpath for url rewriting in relative imports and urls. Works with or without the relative-urls option.", "alias": "rp" },
-    "relative-urls"         : { "description": "Re-writes relative urls to the base less file.", "alias": "ru" },
-    "strict-math"           : { "description": "Turns on or off strict math, where in strict mode, math. Requires brackets. This option may default to on and then be removed in the future.", "alias": "sm" },
-    "strict-units"          : { "description": "Allows mixed units. E.g. 1px+1em or 1px*1px which have units that cannot be represented.", "alias": "su" },
-    "global-var"            : { "description": "Defines a variable that can be referenced by the file." },
-    "modify-var"            : { "description": "Modifies a variable already declared in the file." },
-    "url-args"              : { "description": "Adds params into url tokens.\nE.g. 42, cb=42 or \"a=1&b=2\"." },
-    "plugin"                : { "description": "Loads a plugin. You can also omit the --plugin= if the plugin begins less-plugin. E.g. the clean css plugin is called less-plugin-clean-css once installed " +
-                                               "(npm install less-plugin-clean-css), use either with --plugin=less-plugin-clean-css or just --clean-css specify options afterwards e.g. " +
-                                               "--plugin=less-plugin-clean-css=\"advanced\" or --clean-css=\"advanced\"." }
+    "include-path"          : { "description": "Sets include paths. Separated by \":\". Use \";\" on Windows.", "advanced": true },
+    "no-ie-compat"          : { "description": "Disables IE compatibility checks.", "advanced": true },
+    "no-js"                 : { "description": "Disables JavaScript in less files.", "advanced": true },
+    "strict-imports"        : { "description": "Forces evaluation of imports.", "advanced": true },
+    "insecure"              : { "description": "Allows imports from insecure https hosts.", "advanced": true },
+    "source-map"            : { "description": "Outputs a v3 sourcemap to the filename." },
+    "source-map-rootpath"   : { "description": "Adds this path onto the sourcemap filename and less file paths.", "advanced": true },
+    "source-map-basepath"   : { "description": "Sets sourcemap base path, defaults to current working directory.", "advanced": true },
+    "source-map-less-inline": { "description": "Puts the less files into the map instead of referencing them.", "advanced": true },
+    "source-map-map-inline" : { "description": "Puts the map (and any less files) as a base64 data uri into the output css file.", "advanced": true },
+    "source-map-url"        : { "description": "Sets a custom URL to map file, for sourceMappingURL comment in generated CSS file.", "advanced": true },
+    "rootpath"              : { "description": "Sets rootpath for url rewriting in relative imports and urls. Works with or without the relative-urls option.", "alias": "rp", "advanced": true },
+    "relative-urls"         : { "description": "Re-writes relative urls to the base less file.", "alias": "ru", "advanced": true },
+    "strict-math"           : { "description": "Turns on or off strict math, where in strict mode, math. Requires brackets. This option may default to on and then be removed in the future.", "alias": "sm", "advanced": true },
+    "strict-units"          : { "description": "Allows mixed units. E.g. 1px+1em or 1px*1px which have units that cannot be represented.", "alias": "su", "advanced": true },
+    "global-var"            : { "description": "Defines a variable that can be referenced by the file.", "advanced": true },
+    "modify-var"            : { "description": "Modifies a variable already declared in the file.", "advanced": true },
+    "url-args"              : { "description": "Adds params into url tokens.\nE.g. 42, cb=42 or \"a=1&b=2\".", "advanced": true },
+    "plugin"                : { "description": "Loads a plugin.\nLike --clear-css or --autoprefix." }
 };
 
 // Print the Supported Options.
@@ -40,7 +38,8 @@ if(argv.help
 || argv.h) {
     require("../lib/help.js").show({
         "usageSyntax"     : "less-seeker [options] [file]",
-        "supportedOptions": supportedOptions
+        "supportedOptions": supportedOptions,
+        "fullHelp"        : argv.help == "full"
     });
     return;
 }
