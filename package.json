@@ -1,0 +1,15 @@
+{
+    "name"       : "less-seeker",
+    "description": "Watch a LESS file for modification and recompile it.",
+    "version"    : "0.1.0",
+
+    "author"     : "David Rodrigues <david.rodrigues@rentalhost.net>",
+    "license"    : "MIT",
+
+    "main"       : "bin/less-seeker",
+    "keywords": [
+        "less",
+        "monitor",
+        "watch"
+    ]
+}
