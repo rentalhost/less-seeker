@@ -30,7 +30,7 @@ var supportedOptions = {
     "global-var"            : { "description": "Defines a variable that can be referenced by the file." },
     "modify-var"            : { "description": "Modifies a variable already declared in the file." },
     "url-args"              : { "description": "Adds params into url tokens.\nE.g. 42, cb=42 or \"a=1&b=2\"." },
-    "plugin"                : { "description": "Loads a plugin. You can also omit the --plugin= if the plugin begins less-plugin.\nE.g. the clean css plugin is called less-plugin-clean-css once installed " +
+    "plugin"                : { "description": "Loads a plugin. You can also omit the --plugin= if the plugin begins less-plugin. E.g. the clean css plugin is called less-plugin-clean-css once installed " +
                                                "(npm install less-plugin-clean-css), use either with --plugin=less-plugin-clean-css or just --clean-css specify options afterwards e.g. " +
                                                "--plugin=less-plugin-clean-css=\"advanced\" or --clean-css=\"advanced\"." }
 };
