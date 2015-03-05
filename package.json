@@ -11,5 +11,11 @@
         "less",
         "monitor",
         "watch"
-    ]
+    ],
+
+    "dependencies": {
+        "minimist" : "1.1.*",
+        "extend"   : "2.0.*",
+        "cli-color": "0.3.*"
+    }
 }
