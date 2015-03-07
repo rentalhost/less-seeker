@@ -7,6 +7,10 @@
     "license"    : "MIT",
 
     "main"       : "bin/less-seeker",
+    "bin": {
+        "less-seeker": "./bin/less-seeker"
+    },
+
     "keywords": [
         "less",
         "monitor",
@@ -14,8 +18,14 @@
     ],
 
     "dependencies": {
-        "minimist" : "1.1.*",
-        "extend"   : "2.0.*",
-        "cli-color": "0.3.*"
+        "less"      : "2.4.*",
+        "minimist"  : "1.1.*",
+        "cli-color" : "0.3.*",
+        "glob"      : "4.4.*",
+        "underscore": "1.8.*",
+        "moment"    : "2.9.*",
+        "extend"    : "2.0.*",
+        "camelize"  : "1.0.0",
+        "chokidar"  : "1.0.0-rc4"
     }
 }
