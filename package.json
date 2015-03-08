@@ -11,6 +11,11 @@
         "less-seeker": "./bin/less-seeker"
     },
 
+    "repository": {
+        "type": "git",
+        "url" : "https://github.com/rentalhost/less-seeker.git"
+    },
+
     "keywords": [
         "less",
         "monitor",
